@@ -1,0 +1,47 @@
+Package: RASbound
+Title: Bounded RAS / Biproportional Matrix Balancing with Cell-Level Constraints
+Version: 0.0.1
+Authors@R: c(
+    person(given = "Jose M.",
+           family = "Pavía",
+           role = c("aut", "cre"),
+           email = "jose.m.pavia@uv.es",
+           comment = c(ORCID = "0000-0002-0129-726X"))
+    )
+Description: Implements the RAS method (also known as biproportional matrix 
+    balancing, iterative proportional fitting (IPF), or raking) for adjusting 
+    a matrix to match target row and column totals, extended to support 
+    lower and upper bounds on individual cells. Provides several algorithmic 
+    variants for handling bound violations: hard cell-freezing with 
+    simultaneous, sequential, or hybrid fixation; two dependency-free 
+    clamp-and-compensate heuristics (proportional redistribution and 
+    iterative renormalization); and a naive unconstrained-recompute 
+    baseline; together with thin wrapper functions exposing equivalent 
+    bounded-calibration methods from the 'survey' package under a common 
+    interface. 
+    Intended for updating or regionalizing input-output tables, social 
+    accounting matrices (SAMs), and other applications where classic RAS/IPF 
+    is used but cell-level plausibility ranges must be respected.
+    Acknowledgements:
+    The author wishes to thank Conselleria de Educacion, Cultura y Universidades, 
+    Generalitat Valenciana (grant CIAICO/2023/031) for supporting this research.
+License: GPL-3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: R (>= 3.6)
+Imports:
+    stats,
+    graphics,
+    grDevices,
+    utils
+Suggests:
+    survey,
+    MASS,
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+URL: https://github.com/JMPavia/RASbound
+BugReports: https://github.com/JMPavia/RASbound/issues
