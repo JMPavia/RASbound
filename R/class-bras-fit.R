@@ -96,6 +96,10 @@ NULL
 #'
 #' @param x A `bras_fit` object.
 #' @param ... Unused, present for S3 consistency.
+#' @return `x`, invisibly. The function is called for its side effect: it
+#'   prints the method, whether the fit converged and was feasible, the
+#'   number of outer passes, the number of cells fixed at a bound, and, if
+#'   the problem was found infeasible, the rows and columns involved.
 #' @export
 print.bras_fit <- function(x, ...) {
   cat("<bras_fit> method:", x$method, "\n")
@@ -115,6 +119,12 @@ print.bras_fit <- function(x, ...) {
 #'
 #' @param object A `bras_fit` object.
 #' @param ... Unused, present for S3 consistency.
+#' @return A `data.frame` with one row and the columns `method` (the
+#'   method used), `converged` (logical), `feasible` (logical, `NA` for
+#'   methods that do not check feasibility), `n_outer_iter` (number of outer
+#'   passes), `n_fixed_cells` (number of cells fixed at a bound) and
+#'   `max_row_margin_error` and `max_col_margin_error` (the largest absolute
+#'   error in the row and column totals of the fitted matrix).
 #' @export
 summary.bras_fit <- function(object, ...) {
   data.frame(
